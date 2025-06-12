@@ -1,41 +1,357 @@
 <!DOCTYPE HTML>
+
 <html>
-  <head>
-    <!-- deploy fix -->
-    <title>HBG Makeup</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
-  </head>
-  <body class="is-preload">
+	<head>
+		<title>HBG Make Up</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+	</head>
+	<body class="is-preload">
 
-    <!-- Header -->
-    <header id="header">
-      <h1><a href="/">HBG Makeup</a></h1>
-    </header>
+		<!-- Header -->
+			<header id="header">
+				<h1>HBG Make Up</h1>
+				<nav>
+					<ul>
+						<li><a href="#intro">Inicio</a></li>
+						<li><a href="#one">Sobre mí</a></li>
+						<li><a href="#two">Formulario</a></li>
+						<li><a href="#work">Mis trabajos</a></li>
+						<li><a href="#contact">Contacto</a></li>
+					</ul>
+				</nav>
+			</header>
 
-    <!-- Main -->
-    <div id="main">
-      <article class="thumb">
-        <a href="/images/fulls/01.jpg" class="image"><img src="/images/thumbs/01.jpg" alt="" /></a>
-        <h2>Maquillaje 1</h2>
-      </article>
+		<!-- Intro -->
+			<section id="intro" class="main style1 dark fullscreen">
+				<div class="content">
+					<header>
+						<h2>Herminia Borreguero Gutiérrez</h2>
+					</header>
+					<p><b>Maquilladora profesional</b></p>
+					<footer>
+						<a href="#one" class="button style2 down">More</a>
+					</footer>
+				</div>
+			</section>
 
-      <article class="thumb">
-        <a href="/images/fulls/02.jpg" class="image"><img src="/images/thumbs/02.jpg" alt="" /></a>
-        <h2>Maquillaje 2</h2>
-      </article>
+		<!-- Sobre mí -->
+			<section id="one" class="main style2 right dark fullscreen">
+				<div class="content box style2">
+					<header>
+						<h2>Sobre mí</h2>
+					</header>
+					<p>Maquilladora de eventos profesional con más de cinco años de experiencia en el sector.</p>
+				</div>
+				<a href="#two" class="button style2 down anchored">Next</a>
+			</section>
 
-      <!-- Agrega más artículos aquí -->
-    </div>
+		<!-- Formulario -->
+		 <form id="cita-formulario" enctype="multipart/form-data" action="sendmail.php" method="POST">
 
-    <!-- Scripts -->
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/jquery.poptrox.min.js"></script>
-    <script src="/assets/js/browser.min.js"></script>
-    <script src="/assets/js/breakpoints.min.js"></script>
-    <script src="/assets/js/util.js"></script>
-    <script src="/assets/js/main.js"></script>
+			<section id="two" class="main style2 left dark fullscreen">
+				<div class="content box style2">
+					<header>
+						<h2>Formulario</h2>
+					</header>
+					<p>Coge aquí tu cita</p>
+				<form id="cita-formulario" enctype="multipart/form-data">
+						<!-- Sección 1: Inicio -->
+						<section class="form-section active">
+							</select></label>
+							<button type="button" onclick="nextSection(0)">Siguiente</button>
+						</section>
 
-  </body>
+						<!-- Sección 2: Datos personales -->
+						<section class="form-section">
+							<h3>Datos personales</h3>
+							<label>Nombre completo: *<input type="text" name="nombre" required></label><br>
+							<label>Edad: *<input type="number" name="edad" required></label><br>
+							<label>Número de contacto: *<input type="tel" name="telefono" required></label>
+							<label>Correo electrónico: *<input type="email" name="email" required></label>
+							<label>¿Cómo prefieres que te contacte? *
+							<select name="contacto_preferencia" required>
+								<option value="">Selecciona una opción</option>
+								<option value="whatsapp">WhatsApp</option>
+								<option value="telefono">Teléfono</option>
+								<option value="email">Correo electrónico</option>
+							</select>
+							</label>
+							<button type="button" onclick="prevSection(1)">Anterior</button>
+							<button type="button" onclick="nextSection(1)">Siguiente</button>
+						</section>
+
+						<!-- Sección 3: Detalles de la cita -->
+						<section class="form-section">
+							<h3>Detalles de la cita</h3>
+							<label>¿Tienes experiencia previa con maquillaje profesional? *
+							<select name="experiencia" required>
+								<option value="">Selecciona una opción</option>
+								<option value="si">Sí</option>
+								<option value="no">No</option>
+							</select>
+							</label>
+							<label>¿Tienes alguna referencia o inspiración? (puedes adjuntar una foto)<input type="file" name="foto_referencia"></label>
+							<label>¿Qué estilo prefieres?
+							<select name="estilo">
+								<option value="">Selecciona una opción</option>
+								<option value="natural">Natural</option>
+								<option value="full_glam">Full Glam</option>
+								<option value="asesoramiento">Prefiero asesoramiento</option>
+								<option value="otro">Otra...</option>
+							</select>
+							</label>
+							<label id="estilo_otro_container" style="display:none;"><input type="text" name="estilo_otro" placeholder="Especifica otro estilo"></label>
+							<button type="button" onclick="prevSection(2)">Anterior</button>
+							<button type="button" onclick="nextSection(2)">Siguiente</button>
+						</section>
+
+						<!-- Sección 4: Cuidados y alergias -->
+						<section class="form-section">
+							<h3>Cuidados y alergias</h3>
+							<label>Tipo de piel *
+							<select name="piel" required>
+								<option value="">Selecciona una opción</option>
+								<option value="grasa">Grasa</option>
+								<option value="seca">Seca</option>
+								<option value="mixta">Mixta</option>
+								<option value="acne">Acné</option>
+								<option value="rosacea">Rosácea</option>
+								<option value="no_lo_se">No lo sé</option>
+								<option value="otro">Otra...</option>
+							</select>
+							</label>
+							<label id="piel_otro_container" style="display:none;"><input type="text" name="piel_otro" placeholder="Especifica otro tipo de piel"></label>
+
+							<label>¿Tienes alergia a algún producto o ingrediente? *
+							<select name="alergia" required>
+								<option value="">Selecciona una opción</option>
+								<option value="si">Sí</option>
+								<option value="no">No</option>
+								<option value="otro">Otra...</option>
+							</select>
+							</label>
+							<label id="alergia_otro_container" style="display:none;"><input type="text" name="alergia_otro" placeholder="Indica cuál"></label>
+
+							<label>¿Tienes alguna rutina de cuidado de piel antes del maquillaje? *
+							<select name="rutina" required>
+								<option value="">Selecciona una opción</option>
+								<option value="si">Sí</option>
+								<option value="no">No</option>
+								<option value="otro">Otra...</option>
+							</select>
+							</label>
+							<label id="rutina_otro_container" style="display:none;"><input type="text" name="rutina_otro" placeholder="Describe tu rutina"></label>
+							<button type="button" onclick="prevSection(3)">Anterior</button>
+							<button type="button" onclick="nextSection(3)">Siguiente</button>
+						</section>
+
+						<!-- Sección 5: Confirmar cita -->
+						<section class="form-section">
+							<h3>Confirmar cita</h3>
+							<label>Quiero un maquillaje de... *
+							<select name="tipo_maquillaje" required>
+								<option value="">Selecciona una opción</option>
+								<option value="evento">Evento</option>
+								<option value="novia">Novia</option>
+								<option value="madrina">Madrina</option>
+								<option value="otro">Otra...</option>
+							</select>
+							</label>
+							<label id="maquillaje_otro_container" style="display:none;"><input type="text" name="maquillaje_otro" placeholder="Especifica otro tipo"></label>
+
+							<label>¿Necesitas hacer una prueba de maquillaje? *
+							<select name="prueba" required>
+								<option value="">Selecciona una opción</option>
+								<option value="si">Sí</option>
+								<option value="no">No</option>
+							</select>
+							</label>
+
+							<label>Indica el día del evento *<input type="date" name="fecha_evento" required></label>
+							<label>Indica hora preferente para la cita: *<input type="time" name="hora_evento" required></label>
+							<label>Sube una foto tuya (opcional)<input type="file" name="foto_personal"></label>
+
+							<label>¿Dónde prefieres que hagamos el maquillaje? *
+							<select name="lugar" required>
+								<option value="">Selecciona una opción</option>
+								<option value="cliente">Iré a tu casa</option>
+								<option value="domicilio">A domicilio</option>
+							</select>
+							</label>
+							<button type="button" onclick="prevSection(4)">Anterior</button>
+							<button type="button" onclick="nextSection(4)">Siguiente</button>
+						</section>
+
+						<!-- Sección 6: Domicilio -->
+						<section class="form-section">
+							<h3>Indícame tu domicilio</h3>
+							<label>Dirección completa:<br><textarea name="direccion" rows="3"></textarea></label>
+							<button type="button" onclick="prevSection(5)">Anterior</button>
+							<button type="button" onclick="nextSection(5)">Siguiente</button>
+						</section>
+
+						<!-- Sección 7: Información adicional -->
+						<section class="form-section">
+							<h3>Información adicional</h3>
+							<label>¿Das tu consentimiento para grabar o fotografiar la sesión? *
+							<select name="consentimiento_fotos" required>
+								<option value="">Selecciona una opción</option>
+								<option value="si">Sí</option>
+								<option value="no">No</option>
+								<option value="tal_vez">Tal vez</option>
+							</select>
+							</label>
+							<label>¿Aceptas los términos y condiciones del servicio?
+							<select name="acepta_final">
+								<option value="">Selecciona una opción</option>
+								<option value="si">Sí</option>
+								<option value="no">No</option>
+							</select>
+							</label>
+							<button type="button" onclick="prevSection(6)">Anterior</button>
+							<button type="submit">Enviar formulario</button>
+						</section>
+						</form>
+
+						<style>
+						.form-section { display: none; }
+						.form-section.active { display: block; }
+						</style>
+
+						<script>
+						function nextSection(currentIndex) {
+							const sections = document.querySelectorAll('.form-section');
+							if (!validateSection(sections[currentIndex])) return;
+							sections[currentIndex].classList.remove('active');
+							sections[currentIndex + 1].classList.add('active');
+						}
+
+						function prevSection(currentIndex) {
+							const sections = document.querySelectorAll('.form-section');
+							sections[currentIndex].classList.remove('active');
+							sections[currentIndex - 1].classList.add('active');
+						}
+
+						function validateSection(section) {
+							const requiredFields = section.querySelectorAll('[required]');
+							for (let field of requiredFields) {
+							if (!field.value) {
+								alert('Por favor, completa todos los campos obligatorios.');
+								field.focus();
+								return false;
+							}
+							}
+							return true;
+						}
+
+						document.querySelector('[name="estilo"]').addEventListener('change', function() {
+							document.getElementById('estilo_otro_container').style.display = this.value === 'otro' ? 'block' : 'none';
+						});
+						document.querySelector('[name="piel"]').addEventListener('change', function() {
+							document.getElementById('piel_otro_container').style.display = this.value === 'otro' ? 'block' : 'none';
+						});
+						document.querySelector('[name="alergia"]').addEventListener('change', function() {
+							document.getElementById('alergia_otro_container').style.display = this.value === 'otro' ? 'block' : 'none';
+						});
+						document.querySelector('[name="rutina"]').addEventListener('change', function() {
+							document.getElementById('rutina_otro_container').style.display = this.value === 'otro' ? 'block' : 'none';
+						});
+						document.querySelector('[name="tipo_maquillaje"]').addEventListener('change', function() {
+							document.getElementById('maquillaje_otro_container').style.display = this.value === 'otro' ? 'block' : 'none';
+						});
+						</script>
+
+				</div>
+				<a href="#work" class="button style2 down anchored">Next</a>
+			</section>
+
+		<!-- Work -->
+			<section id="work" class="main style3 primary">
+				<div class="content">
+					<header>
+						<h2>Mis trabajos</h2>
+						<p>añadir descripcion</p>
+					</header>
+
+					<!-- Gallery  -->
+						<div class="gallery">
+							<article class="from-left">
+								<a href="images/fulls/01.jpg" class="image fit"><img src="images/thumbs/01.jpg" title="Around the colour" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/fulls/02.jpg" class="image fit"><img src="images/thumbs/02.jpg" title="Natural Chic" alt="" /></a>
+							</article>
+							<article class="from-left">
+								<a href="images/fulls/03.jpg" class="image fit"><img src="images/thumbs/03.jpg" title="Full Glam" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/fulls/04.jpg" class="image fit"><img src="images/thumbs/04.jpg" title="All to white" alt="" /></a>
+							</article>
+							<article class="from-left">
+								<a href="images/fulls/05.jpg" class="image fit"><img src="images/thumbs/05.jpg" title="The sparkling red" alt="" /></a>
+							</article>
+							<article class="from-right">
+								<a href="images/fulls/06.jpg" class="image fit"><img src="images/thumbs/06.jpg" title="Secret line" alt="" /></a>
+							</article>
+						</div>
+
+				</div>
+			</section>
+
+		<!-- Contact -->
+			<section id="contact" class="main style3 secondary">
+				<div class="content">
+					<header>
+						<h2>Contacta conmigo</h2>
+						<p>Para dudas y contrataciones</p>
+					</header>
+					<div class="box">
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field half"><input type="text" name="name" placeholder="Nombre" /></div>
+								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
+								<div class="field"><textarea name="message" placeholder="Mensaje" rows="6"></textarea></div>
+							</div>
+							<ul class="actions special">
+								<li><input type="submit" value="Enviar Mensaje" /></li>
+							</ul>
+						</form>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+
+				<!-- Icons -->
+					<ul class="icons">
+					
+						<li><a href="https://www.instagram.com/hbgmakeup?igsh=MWw0cjAwY2l1MWNuOA%3D%3D&utm_source=qr" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://www.linkedin.com/in/herminiaborgut/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						
+					</ul>
+
+				<!-- Menu -->
+					<ul class="menu">
+						<li>&copy; HBG Make Up</li><li>
+					</ul>
+
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
+
