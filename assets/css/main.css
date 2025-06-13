@@ -1867,13 +1867,17 @@ input, select, textarea {
 
 					#header nav ul li a {
 						display: block;
-						color: inherit;
+						color: #39454b;
 						text-decoration: none;
 						height: 3em;
 						line-height: 3em;
 						padding: 0 0.5em 0 0.5em;
 						outline: 0;
 						
+					}
+
+					#header nav ul li a:hover {
+						color: #d58fe1;
 					}
 					
 
