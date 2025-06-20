@@ -18,7 +18,7 @@ section, summary, time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: #b68ad4;
+	font: inherit;
 	vertical-align: baseline;}
 
 article, aside, details, figcaption, figure,
@@ -2053,7 +2053,7 @@ input, select, textarea {
 			}
 
 		.main.dark {
-			color: #ffffff;
+			color: #b68ad4;
 		}
 
 			.main.dark a {
