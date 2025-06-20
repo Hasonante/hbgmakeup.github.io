@@ -873,7 +873,7 @@ input, select, textarea {
 		input[type="url"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #c376d0;
+			border-color: #f09aff;
 		}
 
 	input[type="text"],
